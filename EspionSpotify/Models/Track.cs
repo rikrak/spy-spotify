@@ -171,7 +171,15 @@ namespace EspionSpotify.Models
         {
             var song = IsUnknownPlaying ? Artist : Title;
 
-            if (!string.IsNullOrEmpty(Title) && !string.IsNullOrEmpty(TitleExtended)) song += GetTitleExtended();
+            if (!string.IsNullOrEmpty(Title) && !string.IsNullOrEmpty(TitleExtended))
+            {
+                song += GetTitleExtended();
+            }
+
+            if (song != null && this.AlbumPosition.HasValue)
+            {
+                song = $"{this.AlbumPosition.Value:00} - {song}";
+            }
 
             return song ?? "";
         }
