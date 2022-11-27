@@ -157,8 +157,8 @@
     <value>Audio Quality:</value>
     <comment>interface</comment>
   </data>
-  <data name="lblEndingSongDelay" xml:space="preserve">
-    <value>Delay next recording if sound is detected</value>
+  <data name="lblListenToSpotifyPlayback" xml:space="preserve">
+    <value>Always listen to Spotify current playback on the default audio device</value>
     <comment>interface</comment>
   </data>
   <data name="lblFormat" xml:space="preserve">
@@ -483,5 +483,8 @@
   </data>
   <data name="lblAd" xml:space="preserve">
     <value>Ad</value>
+  </data>
+  <data name="lblForceSpotifyToSkip" xml:space="preserve">
+    <value>Force Spotify to skip already recorded track</value>
   </data>
 </root>

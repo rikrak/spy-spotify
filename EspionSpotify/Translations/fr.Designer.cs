@@ -187,20 +187,20 @@ namespace EspionSpotify.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Retarder le prochain enregistrement si du son est détecté.
-        /// </summary>
-        internal static string lblEndingSongDelay {
-            get {
-                return ResourceManager.GetString("lblEndingSongDelay", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Déplacer l&apos;extra du titre de la piste audio dans le tag second titre.
         /// </summary>
         internal static string lblExtraTitleToSubtitle {
             get {
                 return ResourceManager.GetString("lblExtraTitleToSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Force Spotify à sauter les pistes déjà enregistrées.
+        /// </summary>
+        internal static string lblForceSpotifyToSkip {
+            get {
+                return ResourceManager.GetString("lblForceSpotifyToSkip", resourceCulture);
             }
         }
         
@@ -237,6 +237,15 @@ namespace EspionSpotify.Translations {
         internal static string lblLanguage {
             get {
                 return ResourceManager.GetString("lblLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toujours écouter la lecture courante de Spotify sur le périphérique par défaut..
+        /// </summary>
+        internal static string lblListenToSpotifyPlayback {
+            get {
+                return ResourceManager.GetString("lblListenToSpotifyPlayback", resourceCulture);
             }
         }
         

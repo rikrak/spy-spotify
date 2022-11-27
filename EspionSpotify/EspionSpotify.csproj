@@ -54,7 +54,9 @@
     <Prefer32Bit>false</Prefer32Bit>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
-  <PropertyGroup />
+  <PropertyGroup>
+    <langversion>latest</langversion>
+  </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
     <ManifestCertificateThumbprint>1C2A9634A6AEADD711250AEE35CFFF0CF4514E9A</ManifestCertificateThumbprint>
@@ -132,8 +134,9 @@
       <HintPath>..\packages\NAudio.Lame.1.1.6\lib\netstandard2.0\NAudio.Lame.dll</HintPath>
     </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PCLWebUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCLWebUtility.1.0.3\Lib\portable-net4+sl4+wp7+win8\PCLWebUtility.dll</HintPath>
@@ -244,7 +247,6 @@
     <Compile Include="Models\RecorderTask.cs" />
     <Compile Include="Native\NativeMethods.cs" />
     <Compile Include="Native\ProcessManager.cs" />
-    <Compile Include="Translations\en.Designer.cs" />
     <Compile Include="Translations\I18nKeys.cs" />
     <Compile Include="Translations\en.Designer.cs">
       <AutoGen>True</AutoGen>
