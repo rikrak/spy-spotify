@@ -82,7 +82,9 @@ namespace EspionSpotify
 
         public int CountSeconds { get; set; }
         public bool Running { get; set; }
-        
+
+        private bool TrackIsFetchingMetadata => _track.MetaDataUpdated == null && !_userSettings.RecordEverythingEnabled && _userSettings.MediaFormat == MediaFormat.Mp3;
+
         private WaveFormat WaveFormat => _audioThrottler.WaveFormat;
 
         private bool Init()
@@ -133,31 +135,6 @@ namespace EspionSpotify
 
         #endregion RecorderStart
 
-        private async Task<bool> StopRecordingIfTrackCanBeSkipped()
-        {
-            if (_canBeSkippedValidated || _track.MetaDataUpdated != true) return false;
-
-            _canBeSkippedValidated = true;
-            if (IsSkipTrackActive)
-            {
-                _form.WriteIntoConsole(I18NKeys.LogTrackExists, _track.ToString());
-                await UpdateMediaTagsWhenSkippingTrack();
-                ForceStopRecording();
-                if (_userSettings.ForceSpotifyToSkipEnabled)
-                {
-                    var spotifyHandler = SpotifyProcess.GetMainSpotifyHandler(_processManager);
-                    if (spotifyHandler.HasValue)
-                    {
-                        NativeMethods.SendKeyPessNextMedia(spotifyHandler.Value);
-                    }
-                }
-                
-                return true;
-            }
-
-            return false;
-        }
-
         #region RecorderWriteUpcomingData
 
         private async Task RecordAvailableData(SilenceAnalyzer analyzer)
@@ -179,9 +156,35 @@ namespace EspionSpotify
         #endregion RecorderWriteUpcomingData
 
         #region RecorderStopRecording
+        
+        private async Task<bool> StopRecordingIfTrackCanBeSkipped()
+        {
+            if (_canBeSkippedValidated || TrackIsFetchingMetadata) return false;
+
+            _canBeSkippedValidated = true;
+            if (IsSkipTrackActive)
+            {
+                _form.WriteIntoConsole(I18NKeys.LogTrackExists, _track.ToString());
+                await UpdateMediaTagsWhenSkippingTrack();
+                ForceStopRecording();
+                if (_userSettings.ForceSpotifyToSkipEnabled)
+                {
+                    var spotifyHandler = SpotifyProcess.GetMainSpotifyHandler(_processManager);
+                    if (spotifyHandler.HasValue)
+                    {
+                        NativeMethods.SendKeyPessNextMedia(spotifyHandler.Value);
+                    }
+                }
+                
+                return true;
+            }
+
+            return false;
+        }
+        
         private async Task RecordingStopped()
         {
-            while (_track.MetaDataUpdated == null) await Task.Delay(100);
+            while (TrackIsFetchingMetadata) await Task.Delay(100);
             var skipped = !_canBeSkippedValidated && await StopRecordingIfTrackCanBeSkipped();
             if (_tempWaveWriter == null || skipped)
             {

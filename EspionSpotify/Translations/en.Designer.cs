@@ -124,7 +124,7 @@ namespace EspionSpotify.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Group tracks by album.
+        ///   Looks up a localized string similar to Create directories by grouping tracks by artist and album.
         /// </summary>
         internal static string lblAddFolders {
             get {
@@ -147,6 +147,15 @@ namespace EspionSpotify.Translations {
         internal static string lblAds {
             get {
                 return ResourceManager.GetString("lblAds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add the album track number in front of all files name.
+        /// </summary>
+        internal static string lblAlbumTrackNumberToFilePrefix {
+            get {
+                return ResourceManager.GetString("lblAlbumTrackNumberToFilePrefix", resourceCulture);
             }
         }
         
@@ -174,6 +183,24 @@ namespace EspionSpotify.Translations {
         internal static string lblClientId {
             get {
                 return ResourceManager.GetString("lblClientId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add the counter number in front of all files name.
+        /// </summary>
+        internal static string lblCounterToFilePrefix {
+            get {
+                return ResourceManager.GetString("lblCounterToFilePrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Replace the album position (track number) metadata tag by the counter value.
+        /// </summary>
+        internal static string lblCounterToMediaTag {
+            get {
+                return ResourceManager.GetString("lblCounterToMediaTag", resourceCulture);
             }
         }
         
@@ -277,24 +304,6 @@ namespace EspionSpotify.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add the counter number in front of all files name.
-        /// </summary>
-        internal static string lblNumFiles {
-            get {
-                return ResourceManager.GetString("lblNumFiles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Replace track number tag by the counter value.
-        /// </summary>
-        internal static string lblNumTracks {
-            get {
-                return ResourceManager.GetString("lblNumTracks", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Output Path:.
         /// </summary>
         internal static string lblPath {
@@ -322,7 +331,7 @@ namespace EspionSpotify.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Record everything..
+        ///   Looks up a localized string similar to Record everything (like podcast)..
         /// </summary>
         internal static string lblRecordEverything {
             get {
@@ -619,7 +628,7 @@ namespace EspionSpotify.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lost connection to Spotify API. Make sure you authorized Spytify on the same Spotify account that is currently connected to Spotify-Desktop app to be able to get metadata of the current track. Also, double check your Spotify Client_ID and Client_Secret entered. In the meantime Spytify will use LastFM API..
+        ///   Looks up a localized string similar to Lost connection to Spotify API. Make sure you authorized Spytify on the same Spotify account that is currently connected to Spotify-Desktop app to be able to get metadata of the current track. Also, make sure the current active device on Spotify is your PC and double check the Spotify Client_ID and Client_Secret you entered in Spytify. In the meantime Spytify will use LastFM API..
         /// </summary>
         internal static string msgBodyFailedToUseSpotifyAPI {
             get {
